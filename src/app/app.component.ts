@@ -1,28 +1,27 @@
 import { Component } from '@angular/core';
-import { Article } from './reddit/article/article.module'
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'study';
-  articles: Article[];
-  constructor() {
-    this.articles = [
-      new Article('Angular 2', 'http://angular.io', 3),
-      new Article('Fullstack', 'http://fullstack.io', 2),
-      new Article('Angular Homepage', 'http://angular.io', 1),
-    ]; 
+  private lang: string = "zh";
+  constructor(private translate: TranslateService) {
+    //添加语言支持
+    this.translate.addLangs(["en", "zh"]);
+
+    //获取当前浏览器环境的语言比如en、 zh
+    let browserLang = translate.getBrowserLang();
+    // console.log(browserLang)
+    // translate.use(browserLang.match(/en|zh/) ? browserLang : 'zh');
+    //设置默认语言，一般在无法匹配的时候使用
+    this.translate.setDefaultLang('zh');
+
   }
-  addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
-    console.log(`Adding article title: ${title.value} and link: ${link.value}`);
-    this.articles.push(new Article(title.value, link.value, 0));
-    title.value = '';
-    link.value = '';
-    return false;
-  }; 
-  sortedArticles(): Article[] {
-    return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
-  }; 
+  //切换语言
+  changeLang(lang) {
+    this.translate.use(lang);
+  }
 }

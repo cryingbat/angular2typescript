@@ -1,0 +1,21 @@
+<div class="contain">
+  <div class="header">
+    <div class="logo">Atlas</div>
+    <nav>
+      <a routerLink='preview'>preview</a>
+      <a routerLink='history'>history</a>
+      <a routerLink='manager'>manager</a>
+      <a routerLink='system'>system</a>
+    </nav>
+    <div class="lang">
+      <div class="form-group" style="width: 90px;float:right;">
+        <select class="form-control form-control-sm" id="langs">
+          <option>中文</option>
+          <option>English</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  <footer>最终解释权归本人所有@cryingbat.github.com</footer>
+</div>

@@ -1,0 +1,16 @@
+<div class="main">
+  <section class="main-left">
+    <ul>
+      <li class="ipc pointer" *ngFor="let item of ipcList" draggable="true" (dragstart)="dragstart($event, item)">{{item.ipcName}}</li>
+    </ul>
+  </section>
+  <section class="main-right">
+    <div class="content">
+      <div [class]="item.class" [id]='item.id' *ngFor="let item of canvasBox" (dragover)="dragend($event)" (drop)="drop($event)">{{item.class}}</div>
+    </div>
+    <div class="operate">
+        <div class="ob1 ob" (click)='changeWin("4")'>4</div>
+        <div class="ob4 ob" (click)='changeWin("1")'>1</div>
+    </div>
+  </section>
+</div>
