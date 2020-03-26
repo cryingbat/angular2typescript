@@ -1,3 +1,7 @@
-
-
-<button (click)="toLogin()">Login</button>
+<div class="login-container">
+    <div class="login-box">
+        <input type="text" name="" id="userName" class="">
+        <input type="text" name="" id="pwd">
+        <div (click)="toIndex($event)">{{ "login" | translate }}</div>
+    </div>
+</div>

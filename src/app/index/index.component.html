@@ -1,17 +1,15 @@
 <div class="contain">
   <div class="header">
-    <div class="logo">Atlas</div>
+    <div class="logo">{{"ProjectName"| translate}}</div>
     <nav>
-      <a routerLink='preview'>preview</a>
-      <a routerLink='history'>history</a>
-      <a routerLink='manager'>manager</a>
-      <a routerLink='system'>system</a>
+      <a routerLink='preview'>{{ "home" | translate }}</a>
+      <a routerLink='manager'>{{ "manage" | translate }}</a>
+      <a routerLink='system'>{{ "system" | translate }}</a>
     </nav>
     <div class="lang">
       <div class="form-group" style="width: 90px;float:right;">
-        <select class="form-control form-control-sm" id="langs">
-          <option>中文</option>
-          <option>English</option>
+        <select class="form-control form-control-sm"  [(ngModel)]="defaultLang" (change)="langChange($event.target.value)">
+          <option [value] = "item.id" *ngFor="let item of languages">{{item.value}}</option>
         </select>
       </div>
     </div>

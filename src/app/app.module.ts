@@ -1,54 +1,69 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+/**
+ * 主模块路由引入
+ */
+import { AppRoutingModule } from "./app-routing.module";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ArticleComponent } from './reddit/article/article.component';
-import { LoginComponent } from './login/login.component';
-import { IndexComponent } from './index/index.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { PreviewComponent } from './index/preview/preview.component';
-import { HistoryComponent } from './index/history/history.component';
-import { SystemComponent } from './index/system/system.component';
-import { ManagerComponent } from './index/manager/manager.component';
-//import { HelloWorldComponent } from './study01/hello-world/hello-world.component';
-//import { ParentChildComponent } from './study01/parent-child/parent-child.component';
+/**
+ * 主模板引入
+ */
+import { AppComponent } from "./app.component";
+import { LoginComponent } from "./login";
+import { PagenotfoundComponent } from "./pagenotfound";
 
+import { IconsProviderModule } from "./icons-provider.module";
+import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+/**
+ * 共享组件引入
+ */
+import { IndexModule } from "./index/index.module";
+import { SharedModule } from "./shared";
+
+/**
+ * http模块请求引入
+ */
+import {HttpClient, HttpClientModule} from '@angular/common/http'
+
+/**
+ * 国际化引入
+ */
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+// 引入国际化配置
+import {TranslateService} from '@ngx-translate/core';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ArticleComponent,
-    LoginComponent,
-    IndexComponent,
-    PagenotfoundComponent,
-    PreviewComponent,
-    HistoryComponent,
-    SystemComponent,
-    ManagerComponent,
-    // HelloWorldComponent,
-    // ParentChildComponent
-  ],
+  declarations: [AppComponent, LoginComponent, PagenotfoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    IndexModule,
+    SharedModule,
+    IconsProviderModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    // 国际化配置
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: function(http: HttpClient) {
+          return new TranslateHttpLoader(http);
+        },
         deps: [HttpClient]
       }
-    })
+    }),
+    HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http,'./assets/i18n/','.json');
+export class AppModule {
+  constructor(public translate: TranslateService) {
+    translate.setDefaultLang('zh');
+    translate.use('zh');
+    localStorage.setItem('lang', 'zh');
+  }
 }
