@@ -1,6 +1,6 @@
 {
     "login": "login",
-    "ProjectName": "ProjectName",
+    "ProjectName": "{{name}}Project",
     "home": "home",
     "manage": "manage",
     "system": "system",

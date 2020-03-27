@@ -1,6 +1,6 @@
 {
     "login": "登陆",
-    "ProjectName": "项目名称",
+    "ProjectName": "{{name}}项目",
     "home": "首页",
     "manage": "管理",
     "system": "系统",
