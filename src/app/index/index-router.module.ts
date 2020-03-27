@@ -4,21 +4,22 @@ import { IndexComponent } from './index.component';
 import { HomeComponent } from './home';
 import { ManagerComponent } from './manager';
 import { SystemComponent } from './system';
-
+import { guradeService} from '../gurade.service'
 
 const routes: Routes = [
     {
         path: "index",
         component: IndexComponent,
         children: [
-          { path: "", redirectTo: "preview", pathMatch: "full" },
+          { path: "", redirectTo: "home", pathMatch: "full" },
           {
-            path: "preview",
+            path: "home",
             component: HomeComponent
           },
           {
             path: "manager",
-            component: ManagerComponent
+            component: ManagerComponent,
+            canActivate: [guradeService]
           },
           {
             path: "system",

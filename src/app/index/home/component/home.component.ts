@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   initIpcList() {
     for (let i = 0; i < 10; i++) {
       this.ipcList.push({
-        ipcName: `ipc${i}`,
+        ipcName: `shop${i}`,
         channelId: `${i}`
       })
     }

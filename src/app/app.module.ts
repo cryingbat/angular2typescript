@@ -35,7 +35,9 @@ import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 // 引入国际化配置
 import {TranslateService} from '@ngx-translate/core';
+// 注入路由守卫
 
+import {guradeService} from './gurade.service'
 @NgModule({
   declarations: [AppComponent, LoginComponent, PagenotfoundComponent],
   imports: [
@@ -58,6 +60,7 @@ import {TranslateService} from '@ngx-translate/core';
     }),
     HttpClientModule
   ],
+  providers: [guradeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
