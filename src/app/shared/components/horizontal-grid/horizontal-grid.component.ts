@@ -8,7 +8,7 @@ export interface Channel {
 @Component({
   selector: 'app-horizontal-grid',
   templateUrl: './horizontal-grid.component.html',
-  styleUrls: ['./horizontal-grid.component.css']
+  styleUrls: ['./horizontal-grid.component.less']
 })
 export class HorizontalGridComponent implements OnInit {
   
