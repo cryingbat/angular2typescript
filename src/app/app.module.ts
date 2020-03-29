@@ -13,7 +13,6 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login";
 import { PagenotfoundComponent } from "./pagenotfound";
 
-import { IconsProviderModule } from "./icons-provider.module";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -45,7 +44,6 @@ import {guradeService} from './gurade.service'
     AppRoutingModule,
     IndexModule,
     SharedModule,
-    IconsProviderModule,
     FormsModule,
     BrowserAnimationsModule,
     // 国际化配置
