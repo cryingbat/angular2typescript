@@ -63,3 +63,7 @@ a:focus {
   color: #c00;
   text-decoration: underline;
 }
+
+html {
+  height: 100%;
+}

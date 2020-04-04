@@ -1,22 +1,12 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login";
-import { PagenotfoundComponent } from "./pagenotfound";
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "/login" },
   {
     path: "login",
     component: LoginComponent
-  },
-  {
-    path: "pageError",
-    component: PagenotfoundComponent
-  },
-  {
-    path: "**",
-    redirectTo: "pageError",
-    pathMatch: "full"
-  },
+  }
 ];
 
 @NgModule({
