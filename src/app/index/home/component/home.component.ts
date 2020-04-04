@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() {
-    // this.translate.use('zh');
   }
 
   ipcList: Array<any> = [];
@@ -31,11 +29,12 @@ export class HomeComponent implements OnInit {
   initwindow(): String {
     var num = sessionStorage.getItem('pre-win'), preWin;
     if (!num) {
-      sessionStorage.setItem('pre-win', "4");
+      sessionStorage.setItem('pre-win', "1");
+      preWin = 1;
     } else {
       preWin = num;
     }
-    return num;
+    return preWin;
   }
   initCanvasBox(num) {
     for (let i = 0; i < Number(num); i++) {

@@ -2,6 +2,12 @@
     <div class="login-box">
         <input type="text" name="" id="userName" class="">
         <input type="text" name="" id="pwd">
+        <!-- translation: translation pipe -->
         <div (click)="toIndex()">{{ "login" | translate }}</div>
+        <!-- translation: directive (key as attribute)-->
+        <div (click)="toIndex()" [translate]="'login'"></div>
+        <!-- translation: directive (key as content of element) -->
+        <div (click)="toIndex()" translate>login</div>
+
     </div>
 </div>
