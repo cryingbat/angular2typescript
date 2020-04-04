@@ -15,10 +15,22 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     
   }
-
+ private setSettion() {
+  sessionStorage.setItem('token', 'fbdfkjqfrhiu132fdsjanfljng');
+ }
   public toIndex() {
-    sessionStorage.setItem('token', 'fbdfkjqfrhiu132fdsjanfljng');
+    this.setSettion();
     this.router.navigate(["/index"]);
+  }
+  
+  public toManager() {
+    this.setSettion();
+    this.router.navigate(["/index/manager"],{queryParams: {productId: '1',title: 'moon'}});
+  }
+
+  public toSystem() {
+    this.setSettion();
+    this.router.navigate(["/index/system"]);
   }
   
 }
