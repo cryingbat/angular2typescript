@@ -1,13 +1,94 @@
+@import './../../variable.less';
+
 .login-container {
   position: relative;
+  background-color: @main-bg-color;
+  float: left;
+  width: 100%;
   height: 100%;
-}
+  border-radius: 8px;
 
-.login-box {
-  position: absolute;
-  right: 50px;
-  bottom: 100px;
-  width: 300px;
-  height: 400px;
-  background: green;
+  .logo {
+    width: 150px;
+    height: 54px;
+    font-size: 50px;
+    margin: 53px 0 0 65px;
+    background-image: -webkit-linear-gradient(left, blue, #66ffff 10%, #cc00ff 20%, #CC00CC 30%, #CCCCFF 40%, #00FFFF 50%, #CCCCFF 60%, #CC00CC 70%, #CC00FF 80%, #66FFFF 90%, blue 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation: masked-animation 4s linear infinite;
+  }
+
+  .login_box {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    z-index: 2;
+    width: 245px;
+    height: 256px;
+    margin-top: -68px;
+    background: #ffffff;
+    padding: 0 30px;
+    font-size: 14px;
+
+    a {
+      color: @main-btn-color;
+      float: right;
+      text-decoration: none;
+    }
+
+    h3 {
+      font: 16px/70px "微软雅黑", "黑体";
+      color: @main-btn-color;
+      text-align: center;
+    }
+
+    .kuang_txt {
+      width: 238px;
+      height: 32px;
+      border: 1px solid #dddddd;
+      background: #faffbd;
+      line-height: 32px;
+      padding-left: 4px;
+      color: #b1a9a9;
+      margin-bottom: 10px;
+    }
+
+    .btn_login {
+      margin-top: 20px;
+      width: 245px;
+      height: 33px;
+      background: @main-btn-color;
+      font-size: 14px;
+      line-height: 33px;
+      text-align: center;
+      border: 0px;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+
+      &:hover {
+        background: @main-btn-hover-color;
+      }
+    }
+  }
+
+  @keyframes masked-animation {
+    0% {
+      background-position: 0 0;
+    }
+
+    100% {
+      background-position: -100% 0;
+    }
+  }
+  #particles-js{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
 }

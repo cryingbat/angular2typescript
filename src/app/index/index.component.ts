@@ -1,21 +1,22 @@
 import { Component, OnInit } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
+import { Router } from "@angular/router";
 
 export interface Lang {
   value: string;
-  id: number;
+  id: string;
 }
 @Component({
   selector: "app-index",
   templateUrl: "./index.component.html",
-  styleUrls: ["./index.component.less"]
+  styleUrls: ["./index.component.less"],
 })
 export class IndexComponent implements OnInit {
   obj: object;
 
-  constructor(public translate: TranslateService) {
+  constructor(public translate: TranslateService, public router: Router) {
     let curLang = this.translate.currentLang;
-    this._changeProjectName(curLang)
+    this._changeProjectName(curLang);
   }
   ngOnInit() {}
 
@@ -34,25 +35,43 @@ export class IndexComponent implements OnInit {
   languages: Lang[] = [
     {
       value: "中文",
-      id: 0
+      id: "zh",
     },
     {
       value: "English",
-      id: 1
-    }
+      id: "en",
+    },
   ];
+  exit() {
+    sessionStorage.clear();
+    this.router.navigate(["/login"]);
+  }
 
-  defaultLang = 0;
-
-  langChange(value) {
-    let lang: string;
-    if (value == 0) {
+  defaultLang = this._getLangValue(localStorage.getItem("lang") || "zh");
+  showLang: boolean = false;
+  // 点击展开语言选项
+  showLangOption() {
+    this.showLang = true;
+  }
+  // 点击option切换语言
+  public selectLang(val) {
+    this.defaultLang = this._getLangValue(val);
+    if (val == "zh") {
       this.translate.use("zh");
-      lang = 'zh'
     } else {
       this.translate.use("en");
-      lang = 'en'
     }
-    this._changeProjectName(lang)
+    this.showLang = false;
+    this._changeProjectName(val);
+  }
+  // 使用id获取对应的val
+  _getLangValue(val: string): string {
+    let value: string = "";
+    this.languages.forEach((item) => {
+      if (val == item.id) {
+        value = item.value;
+      }
+    });
+    return value;
   }
 }

@@ -1,3 +1,4 @@
+@import '../../variable.less';
 .contain {
   position: relative;
   width: 100%;
@@ -9,7 +10,7 @@
 
 .header {
   height: 50px;
-  background: rgb(111, 115, 211);
+  background: @main-bg-color;
   color: white;
   padding: 5px 20px;
 
@@ -18,39 +19,76 @@
     float: left;
     font-size: 20px;
     margin-right: 20px;
-    line-height: 40px;
+    line-height: 50px;
   }
 }
 
 nav {
-  width: calc(100% - 350px);
+  width: calc(100% - 386px);
   float: left;
-  height: 40px;
-  line-height: 40px;
+  height: 50px;
+  line-height: 50px;
 
   a {
     color: white;
     font-size: 16px;
     display: inline-block;
     width: 120px;
-    &.active{
+
+    &.active {
       text-decoration: underline;
-    }  
+    }
   }
 }
 
-select {
-  background: rgb(111, 115, 211);
-  border: 0;
-  -moz-user-select: none;
+section {
+  width: 147px;
+  height: 50px;
+  float: right;
+  font-size: 16px;
+
+  .exit {
+    width: 56px;
+    height: 50px;
+    display: inline-block;
+    padding: 0 8px;
+    line-height: 50px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .lang {
+    position: relative;
+    width: 73px;
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+
+    .lang-option {
+      position: absolute;
+      z-index: 2;
+      width: 75px;
+      top: 55px;
+      left: 0;
+      background-color: #ddd;
+
+      .opt {
+        padding: 0 5px;
+        width: 65px;
+        height: 30px;
+        color: #fff;
+        line-height: 30px;
+
+        &:hover {
+          background-color: green;
+        }
+      }
+    }
+  }
 }
 
-.lang {
-  width: 150px;
-  height: 40px;
-  float: right;
-  padding-top: 5px;
-}
 
 footer {
   position: absolute;

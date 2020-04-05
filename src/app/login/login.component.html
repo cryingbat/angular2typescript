@@ -1,13 +1,13 @@
 <div class="login-container">
-    <div class="login-box">
-        <input type="text" name="" id="userName" class="">
-        <input type="text" name="" id="pwd">
-        <!-- translation: translation pipe -->
-        <div (click)="toIndex()">{{ "login" | translate }}</div>
-        <!-- translation: directive (key as attribute)-->
-        <div (click)="toManager()" [translate]="'login'"></div>
-        <!-- translation: directive (key as content of element) -->
-        <div (click)="toSystem()" translate>login</div>
-
+  <div class="logo">LOGO</div>
+  <div class="login_box">
+    <h3 translate>login</h3>
+    <input name="" type="text" class="kuang_txt" placeholder="手机号">
+    <input name="" type="text" class="kuang_txt" placeholder="密码">
+    <div>
+      <a href="#">忘记密码？</a><input name="" type="checkbox" value="" checked><span>记住我</span>
     </div>
+    <div class="btn_login"  (click)="toIndex()"  translate>login</div>
+  </div>
+  <div id="particles-js"></div>
 </div>

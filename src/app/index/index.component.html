@@ -6,13 +6,18 @@
       <a routerLink='manager' [routerLinkActive]="['active']">{{ "manage" | translate }}</a>
       <a routerLink='system' [routerLinkActive]="['active']">{{ "system" | translate }}</a>
     </nav>
-    <div class="lang">
-      <div class="form-group" style="width: 90px;float:right;">
-        <select class="form-control form-control-sm"  [(ngModel)]="defaultLang" (change)="langChange($event.target.value)">
-          <option [value] = "item.id" *ngFor="let item of languages">{{item.value}}</option>
-        </select>
+    <section>
+      <div class="exit" (click)="exit()" translate>exit</div>
+      <div class="lang">
+        <div class="form-group" (click)="showLangOption()">
+          {{defaultLang}}
+        </div>
+        <ul class="lang-option" *ngIf="showLang">
+          <li class="opt" *ngFor="let item of languages" (click)="selectLang(item.id)">{{item.value}}</li>
+        </ul>
       </div>
-    </div>
+    </section>
+    
   </div>
   <router-outlet></router-outlet>
   <footer>最终解释权归本人所有@cryingbat.github.com</footer>

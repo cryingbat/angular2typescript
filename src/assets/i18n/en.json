@@ -4,5 +4,6 @@
     "home": "home",
     "manage": "manage",
     "system": "system",
-    "shared": "Iam shared module"
+    "shared": "Iam shared module",
+    "exit": "log out"
 }

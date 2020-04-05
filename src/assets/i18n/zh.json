@@ -1,8 +1,9 @@
 {
-    "login": "登陆",
+    "login": "登录",
     "ProjectName": "{{name}}项目",
     "home": "首页",
     "manage": "管理",
     "system": "系统",
-    "shared": "我是共享模块，shared 模块"
+    "shared": "我是共享模块，shared 模块",
+    "exit": "注销"
 }
