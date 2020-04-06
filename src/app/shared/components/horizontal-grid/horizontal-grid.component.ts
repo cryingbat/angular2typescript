@@ -12,30 +12,12 @@ export interface Channel {
 })
 export class HorizontalGridComponent implements OnInit {
   
-  @Input() cols = 8;
-  @Input() disPlayRows = 5;
-  sliderMargin = '0';
+  @Input() tabName: string;
+  @Input() thead: [] = [];
+  @Input() tbody: [] = [];
   constructor() { }
 
   ngOnInit() {
-  }
-  
-  public get scrollable() : boolean {
-    return this.cols > this.disPlayRows;
-  }
-  
-  
-  public get templateRows() : string {
-    return `minmax(auto, max-content)`
-  }
-
-
-  public get templateColumns() : string {
-    return `repeat(${this.cols}, calc((100vw - ${this.disPlayRows * 0.4}rem) / ${this.disPlayRows})`;
-  }
-
-  handleScroll(ev) {
-    this.sliderMargin = `0 ${100 * ev.target.scrollLeft / ev.target.scrollWidth}%`;
   }
 
 }

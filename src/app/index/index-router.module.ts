@@ -2,10 +2,13 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { IndexComponent } from "./index.component";
 import { HomeComponent } from "./home";
-import { ManagerComponent } from "./manager";
+import {
+  ManagerComponent,
+  UserManagerComponent,
+  LogManagerComponent,
+} from "./manager";
 import { SystemComponent } from "./system";
-import { guradeService } from "../gurade.service";
-import { PagenotfoundComponent } from '../pagenotfound';
+import { PagenotfoundComponent } from "../pagenotfound";
 
 const routes: Routes = [
   {
@@ -20,27 +23,37 @@ const routes: Routes = [
       {
         path: "manager",
         component: ManagerComponent,
-        canActivate: [guradeService],
+        children: [
+          { path: "", redirectTo: "user", pathMatch: "full" },
+          {
+            path: "user",
+            component: UserManagerComponent,
+          },
+          {
+            path: "log",
+            component: LogManagerComponent,
+          },
+        ],
       },
       {
         path: "system",
         component: SystemComponent,
       },
-    ]
+    ],
   },
   {
     path: "pageError",
-    component: PagenotfoundComponent
+    component: PagenotfoundComponent,
   },
   {
     path: "**",
     redirectTo: "pageError",
-    pathMatch: "full"
-  }
+    pathMatch: "full",
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class IndexRouterModule {}

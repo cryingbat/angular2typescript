@@ -3,10 +3,14 @@ import { NgModule } from "@angular/core";
 import { IndexComponent } from "./index.component";
 import { CommonModule } from "@angular/common";
 import { HomeComponent } from "./home";
-import { ManagerComponent } from "./manager";
+import {
+  ManagerComponent,
+  UserManagerComponent,
+  LogManagerComponent,
+} from "./manager";
 import { SystemComponent } from "./system";
 import { IndexRouterModule } from "./index-router.module";
-import { SharedModule } from '../shared';
+import { SharedModule } from "../shared";
 import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
@@ -14,10 +18,18 @@ import { TranslateModule } from "@ngx-translate/core";
     IndexComponent,
     HomeComponent,
     ManagerComponent,
-    SystemComponent
+    SystemComponent,
+    UserManagerComponent,
+    LogManagerComponent,
   ],
-  imports: [FormsModule, CommonModule, IndexRouterModule, SharedModule, TranslateModule],
-  exports: [TranslateModule]
+  imports: [
+    FormsModule,
+    CommonModule,
+    IndexRouterModule,
+    SharedModule,
+    TranslateModule,
+  ],
+  exports: [TranslateModule],
 })
 export class IndexModule {
   constructor() {}

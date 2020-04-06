@@ -5,5 +5,7 @@
     "manage": "管理",
     "system": "系统",
     "shared": "我是共享模块，shared 模块",
-    "exit": "注销"
+    "exit": "注销",
+    "userManage": "用户管理",
+    "logManage": "日志管理"
 }

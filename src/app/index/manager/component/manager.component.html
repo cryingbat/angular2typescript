@@ -1,5 +1,13 @@
-<p>
-    productId: {{productId}}
-    title: {{title}}
+<nav>
+  <a routerLink='user' [routerLinkActive]="['active']">{{ "userManage" | translate }}</a>
+  <a routerLink='log' [routerLinkActive]="['active']">{{ "logManage" | translate }}</a>
+</nav>
+<div class="manager-content">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- <p>
+  productId: {{productId}}
+  title: {{title}}
 </p>
-<app-horizontal-grid></app-horizontal-grid>
+ -->

@@ -5,5 +5,7 @@
     "manage": "manage",
     "system": "system",
     "shared": "Iam shared module",
-    "exit": "log out"
+    "exit": "Log Out",
+    "userManage": "User Manager",
+    "logManage": "Log Manager"
 }

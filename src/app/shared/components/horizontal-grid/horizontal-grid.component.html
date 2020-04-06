@@ -1,1 +1,15 @@
-<div>{{ "shared" | translate }}</div>
+<h3 class="title">{{tabName}}</h3>
+<table>
+  <tr>
+    <th *ngFor="let item of thead">{{item}}</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let row of tbody">
+      <td>{{row.name}}</td>
+      <td>{{row.account}}</td>
+      <td>{{row.password}}</td>
+      <td>{{row.right}}</td>
+      <td>{{row.time}}</td>
+    </tr>
+  </tbody>
+</table>
