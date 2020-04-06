@@ -5,10 +5,12 @@ import { CanActivate, Router } from '@angular/router';
 export class guradeService implements CanActivate{
     constructor(private router: Router){}
     public canActivate() {
-        if(!sessionStorage.getItem('token')){
-            this.router.navigateByUrl('/login')
-            return false;
+        let token = sessionStorage.getItem('token') ? true : false;
+        if(!token){
+            console.log('用户未登陆!');
+        }else{
+            this.router.navigate(['/index']);
         }
-        return true;
+        return !token;
     }
 }
