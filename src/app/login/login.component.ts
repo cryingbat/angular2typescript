@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 // 引入国际化配置
 import { TranslateService } from "@ngx-translate/core";
+import { HttpClient } from '@angular/common/http';
+import {map} from "rxjs/operators";
+import { Observable } from 'rxjs';
 declare var particlesJS: any;
 @Component({
   selector: "app-login",
@@ -9,7 +12,7 @@ declare var particlesJS: any;
   styleUrls: ["./login.component.less"],
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, public translate: TranslateService) {}
+  constructor(private router: Router, public translate: TranslateService,public http: HttpClient) {}
 
   ngOnInit() {
     this._initBg();
@@ -87,6 +90,12 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem("token", "fbdfkjqfrhiu132fdsjanfljng");
   }
   public toIndex() {
+    this.http.post('/users/testLogin', {
+      userName: 'Administrtor',
+      userPwd: "123456x"
+    }).subscribe(res=> {
+      console.log(res)
+    })
     this.setSettion();
     this.router.navigate(["/index"]);
   }

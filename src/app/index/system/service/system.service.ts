@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export interface SystemInfo{
-    name: string,
-    size: string
+    status: string,
+    message: string
 }
 
 @Injectable({
@@ -13,7 +13,7 @@ export interface SystemInfo{
 export class SystemService {
     constructor(private http: HttpClient) {}
     
-    public getSystemInfo (): Observable<SystemInfo[]> {
-        return this.http.get<SystemInfo[]>('http://www.baidu.com')
+    public getSystemInfo (): Observable<SystemInfo> {
+        return this.http.get<SystemInfo>('/users/users')
     } 
 }
