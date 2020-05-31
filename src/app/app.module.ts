@@ -13,7 +13,7 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login";
 import { PagenotfoundComponent } from "./pagenotfound";
 
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 /**
@@ -37,14 +37,17 @@ import {TranslateService} from '@ngx-translate/core';
 // 注入路由守卫
 
 import {guradeService} from './gurade.service'
+import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 @NgModule({
   declarations: [AppComponent, LoginComponent, PagenotfoundComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     IndexModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     // 国际化配置
     TranslateModule.forRoot({
@@ -58,7 +61,7 @@ import {guradeService} from './gurade.service'
     }),
     HttpClientModule
   ],
-  providers: [guradeService],
+  providers: [guradeService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

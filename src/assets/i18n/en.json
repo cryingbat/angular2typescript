@@ -7,5 +7,8 @@
     "shared": "Iam shared module",
     "exit": "Log Out",
     "userManage": "User Manager",
-    "logManage": "Log Manager"
+    "logManage": "Log Manager",
+    "userInfo": "User Info",
+    "modifyPwd": "modify password",
+    "dobValid": "double Valid"
 }

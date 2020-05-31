@@ -7,5 +7,8 @@
     "shared": "我是共享模块，shared 模块",
     "exit": "注销",
     "userManage": "用户管理",
-    "logManage": "日志管理"
+    "logManage": "日志管理",
+    "userInfo": "用户信息",
+    "modifyPwd": "修改密码",
+    "dobValid": "双向校验"
 }

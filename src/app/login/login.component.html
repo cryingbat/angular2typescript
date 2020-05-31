@@ -1,13 +1,26 @@
 <div class="login-container">
   <div class="logo">LOGO</div>
   <div class="login_box">
-    <h3 translate>login</h3>
-    <input name="" type="text" class="kuang_txt" placeholder="手机号">
-    <input name="" type="text" class="kuang_txt" placeholder="密码">
-    <div>
-      <a href="#">忘记密码？</a><input name="" type="checkbox" value="" checked><span>记住我</span>
-    </div>
-    <div class="btn_login"  (click)="toIndex()"  translate>login</div>
+    <form [formGroup]="signForm" (ngSubmit)="toIndex()">
+        <h3 translate>login</h3>
+        <input name="userName" type="text" formControlName="userName" class="kuang_txt" placeholder="手机号">
+        <input name="userPwd" type="text" formControlName="userPwd" class="kuang_txt" placeholder="密码">
+        <ul class="errors" *ngIf="signForm.get('userPwd').invalid && (signForm.get('userPwd').dirty || signForm.get('userPwd').touched)">
+            <li *ngIf="signForm.get('userPwd').hasError('required')" class="error">
+              请再次输入密码!
+            </li>
+            <li *ngIf="signForm.get('userPwd').hasError('minlength')" class="error">
+              请输入至少2位数的密码!
+            </li>
+            <li *ngIf="signForm.get('userPwd').hasError('maxlength')" class="error">
+              密码不超过8位!
+            </li>
+          </ul>
+        <div>
+            <a href="#">忘记密码？</a><input name="" type="checkbox" value="" checked><span>记住我</span>
+        </div>
+        <button type="submit" class="btn_login" [disabled]="submitting || signForm.invalid" translate>login</button>
+    </form>
   </div>
   <div id="particles-js"></div>
 </div>

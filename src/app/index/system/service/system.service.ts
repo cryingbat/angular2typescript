@@ -14,6 +14,6 @@ export class SystemService {
     constructor(private http: HttpClient) {}
     
     public getSystemInfo (): Observable<SystemInfo> {
-        return this.http.get<SystemInfo>('/users/users')
+        return this.http.get<SystemInfo>('/users/users',{withCredentials: true})
     } 
 }

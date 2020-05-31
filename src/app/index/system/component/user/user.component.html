@@ -1,0 +1,35 @@
+<div class="userInfo">
+  <form [formGroup]="userForm" (ngSubmit)="save()">
+    <h3 translate>modifyPwd</h3>
+    <input name="password" autocomplete="off" type="text" formControlName="password" class="password" placeholder="旧密码">
+    <ul class="errors1" *ngIf="userForm.get('password').invalid && (userForm.get('password').dirty || userForm.get('password').touched)">
+        <li *ngIf="userForm.get('password').hasError('required')" class="error">
+          请输入您的密码!
+        </li>
+        <li *ngIf="userForm.get('password').hasError('minlength')" class="error">
+          请输入至少2位数的密码!
+        </li>
+        <li *ngIf="userForm.get('password').hasError('maxlength')" class="error">
+          密码不超过8位!
+        </li>
+    </ul>
+    <input name="confirmPwd" autocomplete="off" type="text" formControlName="confirmPwd"  placeholder="确认密码">
+    <ul class="errors2" *ngIf="userForm.get('confirmPwd').invalid && (userForm.get('confirmPwd').dirty || userForm.get('confirmPwd').touched)">
+        <li *ngIf="userForm.get('confirmPwd').hasError('required')" class="error">
+          请再次输入密码!
+        </li>
+        <li *ngIf="userForm.get('confirmPwd').hasError('minlength')" class="error">
+          请输入至少2位数的密码!
+        </li>
+        <li *ngIf="userForm.get('confirmPwd').hasError('maxlength')" class="error">
+          密码不超过8位!
+        </li>
+        <li *ngIf="!userForm.get('confirmPwd').hasError('maxlength') && !userForm.get('confirmPwd').hasError('minlength') && userForm.get('confirmPwd').hasError('equalto')" class="error">
+          两次密码输入不一致!
+        </li>
+      </ul>
+    <button type="submit" class="btn" [disabled]="submitting || userForm.invalid" translate>save</button>
+      password: {{password}}<br>
+      confirmPwd: {{confirmPwd}}
+</form>
+</div>

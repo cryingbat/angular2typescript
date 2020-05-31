@@ -1,4 +1,4 @@
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 import { IndexComponent } from "./index.component";
 import { CommonModule } from "@angular/common";
@@ -8,10 +8,11 @@ import {
   UserManagerComponent,
   LogManagerComponent,
 } from "./manager";
-import { SystemComponent } from "./system";
+import { SystemComponent, UserComponent } from "./system";
 import { IndexRouterModule } from "./index-router.module";
 import { SharedModule } from "../shared";
 import { TranslateModule } from "@ngx-translate/core";
+import { ValidComponent } from './system/component/valid';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,15 @@ import { TranslateModule } from "@ngx-translate/core";
     ManagerComponent,
     SystemComponent,
     UserManagerComponent,
+    UserComponent,
+    ValidComponent,
     LogManagerComponent,
   ],
   imports: [
     FormsModule,
     CommonModule,
     IndexRouterModule,
+    ReactiveFormsModule,
     SharedModule,
     TranslateModule,
   ],

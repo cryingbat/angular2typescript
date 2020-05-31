@@ -1,0 +1,26 @@
+<div class="validInfo">
+  <form [formGroup]="validForm" (ngSubmit)="save()">
+    <h3 translate>dobValid</h3>
+    <input name="firstName" autocomplete="off" type="text" formControlName="firstName" class="firstName" placeholder="请输入※">
+    <ul class="errors1" *ngIf="validForm.get('firstName').invalid && (validForm.get('firstName').dirty || validForm.get('firstName').touched)">
+        <li *ngIf="validForm.get('firstName').hasError('required')" class="error">
+          输入不能为空!
+        </li>
+        <li *ngIf="validForm.get('firstName').hasError('equalto')" class="error">
+          和lastname一样!
+        </li>
+    </ul>
+    <input name="lastName" autocomplete="off" type="text" formControlName="lastName"  placeholder="请输入※">
+    <ul class="errors2" *ngIf="validForm.get('lastName').invalid && (validForm.get('lastName').dirty || validForm.get('lastName').touched)">
+        <li *ngIf="validForm.get('lastName').hasError('required')" class="error">
+          输入不能为空!
+        </li>
+        <li *ngIf="validForm.get('lastName').hasError('equalto')" class="error">
+          和firstname一样!
+        </li>
+      </ul>
+    <button type="submit" class="btn" [disabled]="submitting || validForm.invalid" translate>save</button>
+    firstName: {{firstName}}<br>
+    lastName: {{lastName}}
+</form>
+</div>

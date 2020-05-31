@@ -7,8 +7,9 @@ import {
   UserManagerComponent,
   LogManagerComponent,
 } from "./manager";
-import { SystemComponent } from "./system";
+import { SystemComponent, UserComponent } from "./system";
 import { PagenotfoundComponent } from "../pagenotfound";
+import { ValidComponent } from './system/component/valid';
 
 const routes: Routes = [
   {
@@ -38,6 +39,17 @@ const routes: Routes = [
       {
         path: "system",
         component: SystemComponent,
+        children: [
+          { path: "", redirectTo: "userinfo", pathMatch: "full" },
+          {
+            path: "userinfo",
+            component: UserComponent,
+          },
+          {
+            path: "valid",
+            component: ValidComponent,
+          },
+        ],
       },
     ],
   },
