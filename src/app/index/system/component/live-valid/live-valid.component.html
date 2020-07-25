@@ -1,0 +1,44 @@
+<div class="validInfo">
+  <div>{{info.t1[0]}}</div>  
+  <div *ngFor="let item of info.t1[1].info | process">
+    {{item.key}}: {{item.value}}
+  </div>
+  <div>{{info.t2[0]}}</div>
+  <div *ngFor="let item of info.t2[1]">
+      <div>{{item.title}}</div>
+      <div *ngFor="let v of item.info">
+          <div ></div>
+        {{v.key}}: {{v.value}}
+      </div>
+  </div>
+  <form [formGroup]="validForm" (ngSubmit)="save()">
+    <h3 translate>liveValid</h3>
+    <p [ngClass]="{'red': rule === 1}">规则1： 输入均不能为空</p>
+    <p [ngClass]="{'red': rule === 2}">规则2： 输入均可以为空</p>
+    <input name="firstName" autocomplete="off" type="text" formControlName="firstName" class="firstName"
+      placeholder="请输入※">
+    <ul class="errors1"
+      *ngIf="validForm.get('firstName').invalid && (validForm.get('firstName').dirty || validForm.get('firstName').touched)">
+      <li *ngIf="validForm.get('firstName').hasError('required')" class="error">
+        输入不能为空!
+      </li>
+      <li *ngIf="validForm.get('firstName').hasError('equalto')" class="error">
+        和lastname一样!
+      </li>
+    </ul>
+    <input name="lastName" autocomplete="off" type="text" formControlName="lastName" placeholder="请输入※">
+    <ul class="errors2"
+      *ngIf="validForm.get('lastName').invalid && (validForm.get('lastName').dirty || validForm.get('lastName').touched)">
+      <li *ngIf="validForm.get('lastName').hasError('required')" class="error">
+        输入不能为空!
+      </li>
+      <li *ngIf="validForm.get('lastName').hasError('equalto')" class="error">
+        和firstname一样!
+      </li>
+    </ul>
+    <button type="submit" class="btn" [disabled]="submitting || validForm.invalid" translate>save</button>
+    <button type="button" (click)="changeRules()" class="btn" translate>change</button>
+    firstName: {{firstName}}<br>
+    lastName: {{lastName}}
+  </form>
+</div>

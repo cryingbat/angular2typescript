@@ -18,6 +18,7 @@ export class IndexComponent implements OnInit {
     let curLang = this.translate.currentLang;
     this._changeProjectName(curLang);
   }
+  public copyright = this.translate.instant('copy')
   ngOnInit() {}
 
   private _changeProjectName (lang: string) {

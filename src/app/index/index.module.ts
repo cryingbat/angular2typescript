@@ -8,21 +8,26 @@ import {
   UserManagerComponent,
   LogManagerComponent,
 } from "./manager";
-import { SystemComponent, UserComponent } from "./system";
+import { SystemComponent, UserComponent, LiveValidComponent } from "./system";
 import { IndexRouterModule } from "./index-router.module";
 import { SharedModule } from "../shared";
-import { TranslateModule } from "@ngx-translate/core";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { ValidComponent } from './system/component/valid';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ProcessPipe } from './process.pipe';
 
 @NgModule({
   declarations: [
     IndexComponent,
     HomeComponent,
     ManagerComponent,
+    ProcessPipe,
     SystemComponent,
     UserManagerComponent,
     UserComponent,
     ValidComponent,
+    LiveValidComponent,
     LogManagerComponent,
   ],
   imports: [
@@ -31,7 +36,17 @@ import { ValidComponent } from './system/component/valid';
     IndexRouterModule,
     ReactiveFormsModule,
     SharedModule,
-    TranslateModule,
+    // 国际化配置
+    TranslateModule.forChild({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: function(http: HttpClient) {
+            return new TranslateHttpLoader(http);
+          },
+          deps: [HttpClient]
+        }
+      }),
+      HttpClientModule
   ],
   exports: [TranslateModule],
 })

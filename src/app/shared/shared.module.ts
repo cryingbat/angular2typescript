@@ -12,20 +12,24 @@ import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
-  declarations: [
-    HorizontalGridComponent,
-    GridItemDirective,
-    GridItemImageDirective,
-    GridItemTitleDirective
-  ],
-  imports: [CommonModule, FormsModule, TranslateModule],
-  exports: [
-    HorizontalGridComponent,
-    GridItemDirective,
-    GridItemImageDirective,
-    GridItemTitleDirective,
-    TranslateModule
-  ]
+   declarations: [
+      HorizontalGridComponent,
+      GridItemDirective,
+      GridItemImageDirective,
+      GridItemTitleDirective,
+   ],
+   imports: [
+      CommonModule,
+      FormsModule,
+      TranslateModule
+   ],
+   exports: [
+      HorizontalGridComponent,
+      GridItemDirective,
+      GridItemImageDirective,
+      GridItemTitleDirective,
+      TranslateModule
+   ]
 })
 export class SharedModule {
 }

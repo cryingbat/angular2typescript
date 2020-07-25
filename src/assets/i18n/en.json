@@ -10,5 +10,9 @@
     "logManage": "Log Manager",
     "userInfo": "User Info",
     "modifyPwd": "modify password",
-    "dobValid": "double Valid"
+    "dobValid": "double Valid",
+    "liveValid": "live Valid",
+    "change": "change rules",
+    "save": "save",
+    "copy": "no be be@cryingbat.github.com"
 }

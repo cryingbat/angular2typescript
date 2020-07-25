@@ -10,5 +10,9 @@
     "logManage": "日志管理",
     "userInfo": "用户信息",
     "modifyPwd": "修改密码",
-    "dobValid": "双向校验"
+    "dobValid": "双向校验",
+    "liveValid": "动态校验",
+    "change": "改变规则",
+    "save": "保存",
+    "copy": "最终解释权归本人所有@cryingbat.github.com"
 }

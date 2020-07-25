@@ -7,7 +7,7 @@ import {
   UserManagerComponent,
   LogManagerComponent,
 } from "./manager";
-import { SystemComponent, UserComponent } from "./system";
+import { SystemComponent, UserComponent, LiveValidComponent } from "./system";
 import { PagenotfoundComponent } from "../pagenotfound";
 import { ValidComponent } from './system/component/valid';
 
@@ -48,6 +48,10 @@ const routes: Routes = [
           {
             path: "valid",
             component: ValidComponent,
+          },
+          {
+            path: "livevalid",
+            component: LiveValidComponent,
           },
         ],
       },
